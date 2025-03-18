@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://ds2al7elkwwso"]
-
-[node name="PG_Scene000" type="Node3D"]
-
-[node name="Camera3D" type="Camera3D" parent="."]
