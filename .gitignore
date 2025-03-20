@@ -15,7 +15,7 @@ build/bin/*
 .sconsign*.dblite
 
 # Visual Studio ignores
-.vs/						### Visual Studio cache directory
+*.vs/						### Visual Studio cache directory
 ## Binaries
 *.csproj
 *.sln
