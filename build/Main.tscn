@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d38k86txtc06s"]
+
+[ext_resource type="Texture2D" uid="uid://35v50getbuks" path="res://icon.svg" id="1_glv2v"]
+
+[node name="Main" type="Node2D"]
+
+[node name="GDExample" type="GDExample" parent="."]
+texture = ExtResource("1_glv2v")
