@@ -1,6 +1,6 @@
 # Godot 4+ ignores 
 *.gen.*						### Generated files ignore
-.godot/						### Godot engine ignore
+build/.godot/						### Godot engine ignore
 .import/					### Imported files ignore
 .mono/						### Mono files ignore
 .data_*/					### Data files ignore
