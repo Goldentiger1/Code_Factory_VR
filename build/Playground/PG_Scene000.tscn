@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2q3q40wjx26s"]
+
+[ext_resource type="PackedScene" uid="uid://dkwv16dua4cdl" path="res://Assets/block.tscn" id="1_lrrnt"]
+[ext_resource type="PackedScene" uid="uid://cbhdctxfhtssf" path="res://Assets/PCharacter.tscn" id="2_mcvi6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2jyi6"]
+size = Vector3(10, 0.5, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lrrnt"]
+size = Vector3(10, 0.5, 10)
+
+[node name="PG_Scene000" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.944106, 0.329641, 0, -0.329641, 0.944106, 0, 2.34892, 5.12431)
+
+[node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.266148, 0)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("BoxMesh_2jyi6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_lrrnt")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0)
+shadow_enabled = true
+
+[node name="Blocks" type="Node3D" parent="."]
+
+[node name="Block1" parent="Blocks" instance=ExtResource("1_lrrnt")]
+transform = Transform3D(0.781117, -0.624384, 0, 0.624384, 0.781117, 0, 0, 0, 1, 0, 2.26564, 0)
+
+[node name="Block2" parent="Blocks" instance=ExtResource("1_lrrnt")]
+transform = Transform3D(0.781117, -0.624384, 0, 0.624384, 0.781117, 0, 0, 0, 1, -1.70663, 4.19145, 0)
+
+[node name="PCharacter" parent="." instance=ExtResource("2_mcvi6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.09064, 0.689071, 0)
