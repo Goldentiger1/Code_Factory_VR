@@ -1,0 +1,4 @@
+# Godot 4+ ignores
+.godot/						### Godot engine ignore
+
+# Visual Studio ignores
