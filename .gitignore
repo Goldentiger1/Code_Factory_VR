@@ -1,13 +1,22 @@
-# Godot 4+ ignores 
-*.gen.*						### Generated files ignore
-build/.godot/						### Godot engine ignore
-.import/					### Imported files ignore
-.mono/						### Mono files ignore
-.data_*/					### Data files ignore
-export.cfg					### Export settings ignore
-export_credentials.cfg		### Export credentials ignore
-*.translation				### Imported translations (automatically generated from CSV files)
-mono_crash.*.json			### Mono crash reports ignore
+# Godot 4+ ignores
+### Generated files ignore
+*.gen.*
+### Godot engine ignore
+.godot/
+### Imported files ignore
+.import/
+### Mono files ignore
+.mono/
+### Data files ignore
+.data_*/
+### Export settings ignore
+export.cfg
+### Export credentials ignore
+export_credentials.cfg
+### Imported translations (automatically generated from CSV files)
+*.translation
+### Mono crash reports ignore
+mono_crash.*.json
 
 ## GDExtension files ignores
 build/bin/*
@@ -15,7 +24,8 @@ build/bin/*
 .sconsign*.dblite
 
 # Visual Studio ignores
-.vs/						### Visual Studio cache directory
+### Visual Studio cache directory
+.vs/
 ## Binaries
 *.csproj
 *.sln
