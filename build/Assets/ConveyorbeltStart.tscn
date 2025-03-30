@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://5xkver0j3nw7"]
+[gd_scene load_steps=13 format=3 uid="uid://5xkver0j3nw7"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_3il1y"]
 top_radius = 1.0
@@ -24,6 +24,24 @@ size = Vector3(0.2, 0.1, 0.5)
 [sub_resource type="BoxShape3D" id="BoxShape3D_431ix"]
 size = Vector3(0.2, 0.1, 0.5)
 
+[sub_resource type="BoxMesh" id="BoxMesh_431ix"]
+size = Vector3(0.2, 0.1, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qx8nc"]
+size = Vector3(0.2, 0.1, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qx8nc"]
+size = Vector3(0.1, 0.8, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g0cdc"]
+size = Vector3(0.1, 0.8, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_g0cdc"]
+size = Vector3(0.1, 0.8, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m71aj"]
+size = Vector3(0.1, 0.8, 0.1)
+
 [node name="ConveyorbeltStart" type="Node3D"]
 
 [node name="StartingPosition" type="StaticBody3D" parent="."]
@@ -35,22 +53,56 @@ mesh = SubResource("CylinderMesh_3il1y")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StartingPosition"]
 shape = SubResource("CylinderShape3D_cxj15")
 
-[node name="StartingBelt0" type="StaticBody3D" parent="."]
+[node name="StartingBelts" type="Node3D" parent="."]
+
+[node name="StartingBelt0" type="StaticBody3D" parent="StartingBelts"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.45, 0)
 metadata/_edit_group_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StartingBelt0"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StartingBelts/StartingBelt0"]
 mesh = SubResource("BoxMesh_3il1y")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StartingBelt0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StartingBelts/StartingBelt0"]
 shape = SubResource("BoxShape3D_cxj15")
 
-[node name="StartingBelt1" type="StaticBody3D" parent="."]
-transform = Transform3D(0.939693, 0, -0.34202, 0, 1, 0, 0.34202, 0, 0.939693, -1, 0.45, -0.23)
+[node name="StartingBelt1" type="StaticBody3D" parent="StartingBelts"]
+transform = Transform3D(0.939693, 0, -0.34202, 0, 1, 0, 0.34202, 0, 0.939693, -1, 0.45, -0.235)
 metadata/_edit_group_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StartingBelt1"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StartingBelts/StartingBelt1"]
 mesh = SubResource("BoxMesh_cxj15")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StartingBelt1"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StartingBelts/StartingBelt1"]
 shape = SubResource("BoxShape3D_431ix")
+
+[node name="StartingBelt2" type="StaticBody3D" parent="StartingBelts"]
+transform = Transform3D(0.939693, 0, 0.34202, 0, 1, 0, -0.34202, 0, 0.939693, -1, 0.45, 0.235)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StartingBelts/StartingBelt2"]
+mesh = SubResource("BoxMesh_431ix")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StartingBelts/StartingBelt2"]
+shape = SubResource("BoxShape3D_qx8nc")
+
+[node name="SupportPoles" type="Node3D" parent="."]
+
+[node name="BeltSupportPole0" type="StaticBody3D" parent="SupportPoles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.95, 0, 0.45)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SupportPoles/BeltSupportPole0"]
+mesh = SubResource("BoxMesh_qx8nc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SupportPoles/BeltSupportPole0"]
+shape = SubResource("BoxShape3D_g0cdc")
+
+[node name="BeltSupportPole1" type="StaticBody3D" parent="SupportPoles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.95, 0, -0.45)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SupportPoles/BeltSupportPole1"]
+mesh = SubResource("BoxMesh_g0cdc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SupportPoles/BeltSupportPole1"]
+shape = SubResource("BoxShape3D_m71aj")

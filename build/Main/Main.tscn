@@ -15,7 +15,7 @@ transform = Transform3D(-4.37114e-08, 0.766044, -0.642788, 0, 0.642788, 0.766044
 shadow_enabled = true
 
 [node name="Camera" type="Camera3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 5)
 
 [node name="Floor" type="StaticBody3D" parent="."]
 metadata/_edit_group_ = true
@@ -27,4 +27,4 @@ mesh = SubResource("BoxMesh_2degd")
 shape = SubResource("BoxShape3D_lxy7q")
 
 [node name="ConveyorbeltStart" parent="." instance=ExtResource("1_lxy7q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.111641, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.45, -4)
