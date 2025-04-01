@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://da5ft174q4ad2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_c4kbf"]
+size = Vector3(1, 0.1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e4s13"]
+size = Vector3(1, 0.1, 1)
+
+[node name="ConveyorBelt" type="Node3D"]
+
+[node name="ConveyorBeltBottom" type="StaticBody3D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ConveyorBeltBottom"]
+mesh = SubResource("BoxMesh_c4kbf")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ConveyorBeltBottom"]
+shape = SubResource("BoxShape3D_e4s13")

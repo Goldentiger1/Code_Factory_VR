@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://5xkver0j3nw7"]
+[gd_scene load_steps=17 format=3 uid="uid://5xkver0j3nw7"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_3il1y"]
 top_radius = 1.0
@@ -47,6 +47,12 @@ size = Vector3(0.75, 0.3, 0.02)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hjumq"]
 size = Vector3(0.75, 0.3, 0.02)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hjumq"]
+size = Vector3(0.55, 0.3, 0.02)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ufkhf"]
+size = Vector3(0.5, 0.3, 0.02)
 
 [node name="ConveyorbeltStart" type="Node3D"]
 
@@ -113,62 +119,84 @@ mesh = SubResource("BoxMesh_g0cdc")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SupportPoles/BeltSupportPole1"]
 shape = SubResource("BoxShape3D_m71aj")
 
-[node name="ConveyorBeltBorder0" type="StaticBody3D" parent="."]
+[node name="ConveyorBeltBorders" type="Node3D" parent="."]
+
+[node name="ConveyorBeltBorder0" type="StaticBody3D" parent="ConveyorBeltBorders"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.45, -0.51)
 metadata/_edit_group_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="ConveyorBeltBorder0"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ConveyorBeltBorders/ConveyorBeltBorder0"]
 mesh = SubResource("BoxMesh_m71aj")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ConveyorBeltBorder0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ConveyorBeltBorders/ConveyorBeltBorder0"]
 shape = SubResource("BoxShape3D_hjumq")
 
-[node name="ConveyorBeltBorder1" type="StaticBody3D" parent="."]
+[node name="ConveyorBeltBorder1" type="StaticBody3D" parent="ConveyorBeltBorders"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.45, 0.51)
 metadata/_edit_group_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="ConveyorBeltBorder1"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ConveyorBeltBorders/ConveyorBeltBorder1"]
 mesh = SubResource("BoxMesh_m71aj")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ConveyorBeltBorder1"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ConveyorBeltBorders/ConveyorBeltBorder1"]
 shape = SubResource("BoxShape3D_hjumq")
 
-[node name="ConveyorBeltBorder2" type="StaticBody3D" parent="."]
+[node name="ConveyorBeltBorder2" type="StaticBody3D" parent="ConveyorBeltBorders"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 1)
 metadata/_edit_group_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="ConveyorBeltBorder2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ConveyorBeltBorders/ConveyorBeltBorder2"]
 mesh = SubResource("BoxMesh_m71aj")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ConveyorBeltBorder2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ConveyorBeltBorders/ConveyorBeltBorder2"]
 shape = SubResource("BoxShape3D_hjumq")
 
-[node name="ConveyorBeltBorder3" type="StaticBody3D" parent="."]
+[node name="ConveyorBeltBorder3" type="StaticBody3D" parent="ConveyorBeltBorders"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, -1)
 metadata/_edit_group_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="ConveyorBeltBorder3"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ConveyorBeltBorders/ConveyorBeltBorder3"]
 mesh = SubResource("BoxMesh_m71aj")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ConveyorBeltBorder3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ConveyorBeltBorders/ConveyorBeltBorder3"]
 shape = SubResource("BoxShape3D_hjumq")
 
-[node name="ConveyorBeltBorder4" type="StaticBody3D" parent="."]
+[node name="ConveyorBeltBorder4" type="StaticBody3D" parent="ConveyorBeltBorders"]
 transform = Transform3D(0.766044, 0, 0.642788, 0, 1, 0, -0.642788, 0, 0.766044, 0.650775, 0.45, 0.761317)
 metadata/_edit_group_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="ConveyorBeltBorder4"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ConveyorBeltBorders/ConveyorBeltBorder4"]
 mesh = SubResource("BoxMesh_m71aj")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ConveyorBeltBorder4"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ConveyorBeltBorders/ConveyorBeltBorder4"]
 shape = SubResource("BoxShape3D_hjumq")
 
-[node name="ConveyorBeltBorder5" type="StaticBody3D" parent="."]
+[node name="ConveyorBeltBorder5" type="StaticBody3D" parent="ConveyorBeltBorders"]
 transform = Transform3D(0.766044, 0, -0.642788, 0, 1, 0, 0.642788, 0, 0.766044, 0.65, 0.45, -0.75)
 metadata/_edit_group_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="ConveyorBeltBorder5"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ConveyorBeltBorders/ConveyorBeltBorder5"]
 mesh = SubResource("BoxMesh_m71aj")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ConveyorBeltBorder5"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ConveyorBeltBorders/ConveyorBeltBorder5"]
 shape = SubResource("BoxShape3D_hjumq")
+
+[node name="ConveyorBeltBorder6" type="StaticBody3D" parent="ConveyorBeltBorders"]
+transform = Transform3D(-0.173648, 0, 0.984808, 0, 1, 0, -0.984808, 0, -0.173648, 0.981, 0.45, -0.265)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ConveyorBeltBorders/ConveyorBeltBorder6"]
+mesh = SubResource("BoxMesh_hjumq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ConveyorBeltBorders/ConveyorBeltBorder6"]
+shape = SubResource("BoxShape3D_ufkhf")
+
+[node name="ConveyorBeltBorder7" type="StaticBody3D" parent="ConveyorBeltBorders"]
+transform = Transform3D(-0.173648, 0, -0.984808, 0, 1, 0, 0.984808, 0, -0.173648, 0.981, 0.45, 0.265)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ConveyorBeltBorders/ConveyorBeltBorder7"]
+mesh = SubResource("BoxMesh_hjumq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ConveyorBeltBorders/ConveyorBeltBorder7"]
+shape = SubResource("BoxShape3D_ufkhf")

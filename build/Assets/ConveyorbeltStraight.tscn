@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://da5ft174q4ad2"]
-
-[node name="ConveyorbeltStart" type="Node3D"]
-
-[node name="Conveyorbelt" type="StaticBody3D" parent="."]
