@@ -1,10 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://da5ft174q4ad2"]
+[gd_scene load_steps=7 format=3 uid="uid://da5ft174q4ad2"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_c4kbf"]
+[sub_resource type="BoxMesh" id="BoxMesh_6shvf"]
 size = Vector3(1, 0.1, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_e4s13"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_4iv06"]
 size = Vector3(1, 0.1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4iv06"]
+size = Vector3(0.75, 0.3, 0.02)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i0ncq"]
+size = Vector3(0.75, 0.3, 0.02)
+
+[sub_resource type="BoxMesh" id="BoxMesh_i0ncq"]
+size = Vector3(0.1, 0.8, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8dngv"]
+size = Vector3(0.1, 0.8, 0.1)
 
 [node name="ConveyorBelt" type="Node3D"]
 
@@ -12,8 +24,69 @@ size = Vector3(1, 0.1, 1)
 metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ConveyorBeltBottom"]
-mesh = SubResource("BoxMesh_c4kbf")
-skeleton = NodePath("../..")
+mesh = SubResource("BoxMesh_6shvf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ConveyorBeltBottom"]
-shape = SubResource("BoxShape3D_e4s13")
+shape = SubResource("BoxShape3D_4iv06")
+
+[node name="ConveyorBeltBorders" type="Node3D" parent="."]
+
+[node name="ConveyorBeltBorder0" type="StaticBody3D" parent="ConveyorBeltBorders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.51)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ConveyorBeltBorders/ConveyorBeltBorder0"]
+mesh = SubResource("BoxMesh_4iv06")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ConveyorBeltBorders/ConveyorBeltBorder0"]
+shape = SubResource("BoxShape3D_i0ncq")
+
+[node name="ConveyorBeltBorder1" type="StaticBody3D" parent="ConveyorBeltBorders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.51)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ConveyorBeltBorders/ConveyorBeltBorder1"]
+mesh = SubResource("BoxMesh_4iv06")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ConveyorBeltBorders/ConveyorBeltBorder1"]
+shape = SubResource("BoxShape3D_i0ncq")
+
+[node name="BeltSupportPole0" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, -0.45, 0.45)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BeltSupportPole0"]
+mesh = SubResource("BoxMesh_i0ncq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BeltSupportPole0"]
+shape = SubResource("BoxShape3D_8dngv")
+
+[node name="BeltSupportPole1" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, -0.45, -0.45)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BeltSupportPole1"]
+mesh = SubResource("BoxMesh_i0ncq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BeltSupportPole1"]
+shape = SubResource("BoxShape3D_8dngv")
+
+[node name="BeltSupportPole2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, -0.45, 0.45)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BeltSupportPole2"]
+mesh = SubResource("BoxMesh_i0ncq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BeltSupportPole2"]
+shape = SubResource("BoxShape3D_8dngv")
+
+[node name="BeltSupportPole3" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, -0.45, -0.45)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BeltSupportPole3"]
+mesh = SubResource("BoxMesh_i0ncq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BeltSupportPole3"]
+shape = SubResource("BoxShape3D_8dngv")
