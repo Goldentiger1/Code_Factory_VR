@@ -11,14 +11,29 @@ config_version=5
 [application]
 
 config/name="Code Factory (VR)"
+run/main_scene="uid://sgbeowxw5fjj"
 config/features=PackedStringArray("4.4", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+XRToolsUserSettings="*res://addons/godot-xr-tools/user_settings/user_settings.gd"
+XRToolsRumbleManager="*res://addons/godot-xr-tools/rumble/rumble_manager.gd"
 
 [dotnet]
 
 project/assembly_name="Code Factory (VR)"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+
+[xr]
+
+openxr/enabled=true
+shaders/enabled=true
