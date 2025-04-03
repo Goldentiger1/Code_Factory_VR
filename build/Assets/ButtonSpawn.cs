@@ -12,6 +12,10 @@ public partial class ButtonSpawn : Node3D
     private Area3D boxTrigger = new Area3D();
     // A private Node3d parent to contain boxes
     private Node3D Boxes = new Node3D();
+    // A private PackeScene for the child box loading
+    private PackedScene boxScene = new PackedScene();
+    // A private Node3D for box child
+    private Node3D box = new Node3D();
 
 
     public override void _Ready()
@@ -20,6 +24,8 @@ public partial class ButtonSpawn : Node3D
         buttonNode = this.GetNodeOrNull<Node3D>(".");
         // Get our trigger from scene
         boxTrigger = GetNode<Area3D>("../../BoxTrigger/Area3D");
+        boxScene = GD.Load<PackedScene>("res://Assets/Box.tscn");
+        AddChild(Boxes);
     }
 
     public override void _Process(double delta)
@@ -27,7 +33,14 @@ public partial class ButtonSpawn : Node3D
         // Debug button preess for now.
         if(Input.IsKeyPressed(Key.A))
         {
-            GD.Print("Hello");
+            GD.Print("Key pressed");
+            if(Boxes.GetChildCount() == 0)
+            {
+                GD.Print("Creating box");
+                box = boxScene.Instantiate<Node3D>();
+                box.Position = boxPos;
+                Boxes.AddChild(box);
+            }
         }
     }
 }
