@@ -20,6 +20,8 @@ public partial class ButtonSpawn : Node3D
     //private Area3D boxTrigger = new Area3D();
     // A private boolean value to see is button pressed
     private bool buttonPressed = false;
+    // A private variable for list length
+    private int lBoxeslength = 0;
 
     public override void _Ready()
     {
@@ -32,6 +34,8 @@ public partial class ButtonSpawn : Node3D
         GetNode<Node3D>("../..").CallDeferred("add_child", nodeBoxes);
         // Preload our box PackedScene
         boxScene = GD.Load<PackedScene>("res://Assets/Box.tscn");
+        // Set the value into lBoxeslength of our listBoxes
+        lBoxeslength = listBoxes.Length;
     }
 
     public override void _Process(double delta)
@@ -50,9 +54,13 @@ public partial class ButtonSpawn : Node3D
                 break;
         }
 
-        do
+        for(int i = 0; buttonPressed == true;)
         {
-            
-        } while (buttonPressed == true);
+            for(int j = 0; j < lBoxeslength; j++)
+            {
+                GD.Print(i + "." + j);
+            }
+            i++;
+        }
     }
 }
