@@ -1,6 +1,8 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
+using System.Linq;
 
 public partial class RunButton : Node3D
 {
@@ -10,6 +12,13 @@ public partial class RunButton : Node3D
     private bool RButtonPressed = false;
     // A private Vector3 value to see is box spawn position free
     private Vector3 SBoxPos = new Vector3(0.0f, 0.0f, 0.0f);
+    // A private compare value
+    private Vector3 ComBoxPos = new Vector3(0.0f, 0.0f, 0.0f);
+    // A private Vector3 list for box positions to go through
+    private Vector3[] LBoxPos = new Vector3[5];
+    // A private float time to make code wait a little before
+    // going forward
+    float time = 0.1f;
 
     public override void _Ready()
     {
@@ -41,18 +50,46 @@ public partial class RunButton : Node3D
             }
             else
             {
-                for(int i = 0; i < startButton.listBoxes.Length;)
+                for(int i = 0; i < startButton.listBoxes.Length; i++)
                 {
-                    if(SBoxPos.X <= (startButton.boxPos.X - 3.0f))
+                    if (SBoxPos.X <= (startButton.boxPos.X - 3.0f))
                     {
-                        SBoxPos = startButton.listBoxes[i].Position;
                         startButton.nodeBoxes.AddChild(startButton.listBoxes[i]);
-                        i++;
+                        LBoxPos[i] = startButton.listBoxes[i].Position;
+                        SBoxPos = startButton.listBoxes[i].Position;
+                        GD.Print("Loop number: " + i + "\n" + "Current box name: " + startButton.listBoxes[i].Name);
+                        continue;
                     }
-                    else
+                    else if(SBoxPos.X <= startButton.boxPos.X)
                     {
-                        startButton.listBoxes[i].Position.X = (startButton.listBoxes[i].Position.X - 0.5f * delta);
+                        for(int j = 0; j < LBoxPos.Length; j++)
+                        {
+                            if (LBoxPos[j] == ComBoxPos)
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                LBoxPos[j] -=  new Vector3(0.1f, 0.0f, 0.0f);
+                                startButton.listBoxes[j].Position = LBoxPos[j];
+                                SBoxPos = startButton.listBoxes[i].Position;
+                                GD.Print("Loop number: " + i + "\n" + "List positions number: " + j + "\n" + "Position: " + LBoxPos[j]);
+                                GD.Print(time);
+                                if (time < 50000.0f)
+                                {
+                                    time += time * (float)delta;
+                                }
+                                else if(time == 50000.0f)
+                                {
+                                    GD.Print(time);
+                                    time = 0.1f;
+                                    continue;
+                                }
+                                    
+                            }
+                        }
                     }
+
                 }
             }
         }

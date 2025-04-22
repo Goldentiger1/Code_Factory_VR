@@ -15,8 +15,6 @@ public partial class ButtonSpawn : Node3D
     public Node3D box = new Node3D();
     // A private vector3 for our box spawn position
     public Vector3 boxPos = new Vector3(3.0f, 1.45f, -4.0f);
-    //// A private Area3D variable to see is our box on a conveyor belt
-    //private Area3D boxTrigger = new Area3D();
     // A private boolean value to see is button pressed
     private bool SButtonPressed = false;
     // A private variable for list length
@@ -54,11 +52,11 @@ public partial class ButtonSpawn : Node3D
         {
             if (listBoxes[0] == null)
             {
-                for(int i = 0; i < lBoxeslength; i++)
+                for(int i = 0; i <= lBoxeslength; i++)
                 {
                     listBoxes[i] = new Node3D();
                     box = boxScene.Instantiate<Node3D>();
-                    box.Name = "Box_" + i;
+                    box.Name = "Box_" + (i + 1);
                     box.Position = boxPos;
                     listBoxes[i] = box;
                 }

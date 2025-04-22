@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://sgbeowxw5fjj"]
+[gd_scene load_steps=11 format=3 uid="uid://sgbeowxw5fjj"]
 
 [ext_resource type="Script" uid="uid://ccgobr5ewx2wa" path="res://Main/Main.cs" id="1_hh5pf"]
 [ext_resource type="PackedScene" uid="uid://5xkver0j3nw7" path="res://Assets/ConveyorbeltStart.tscn" id="1_lxy7q"]
 [ext_resource type="PackedScene" uid="uid://da5ft174q4ad2" path="res://Assets/ConveyorBelt.tscn" id="2_83ytx"]
 [ext_resource type="PackedScene" uid="uid://dyirf6dmis3u3" path="res://Assets/Button.tscn" id="3_amygn"]
 [ext_resource type="Script" uid="uid://barpdbqytgqou" path="res://Assets/ButtonSpawn.cs" id="4_6aewd"]
-[ext_resource type="PackedScene" uid="uid://dto1ycfcm4gb1" path="res://Assets/BoxTrigger.tscn" id="4_ps1la"]
 [ext_resource type="Script" uid="uid://b1s47kaxx7pxe" path="res://Assets/RunButton.cs" id="6_hh5pf"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_2degd"]
@@ -69,9 +68,6 @@ script = ExtResource("4_6aewd")
 [node name="RunButton" parent="ControlPanelComponents" instance=ExtResource("3_amygn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0545481, 0.6, 3.5)
 script = ExtResource("6_hh5pf")
-
-[node name="BoxTrigger" parent="." instance=ExtResource("4_ps1la")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.786214, 1.195, -4)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 4.5)
