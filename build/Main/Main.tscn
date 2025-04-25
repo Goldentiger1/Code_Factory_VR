@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://sgbeowxw5fjj"]
+[gd_scene load_steps=14 format=3 uid="uid://sgbeowxw5fjj"]
 
 [ext_resource type="Script" uid="uid://ccgobr5ewx2wa" path="res://Main/Main.cs" id="1_hh5pf"]
 [ext_resource type="PackedScene" uid="uid://5xkver0j3nw7" path="res://Assets/ConveyorbeltStart.tscn" id="1_lxy7q"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dyirf6dmis3u3" path="res://Assets/Button.tscn" id="3_amygn"]
 [ext_resource type="Script" uid="uid://barpdbqytgqou" path="res://Assets/ButtonSpawn.cs" id="4_6aewd"]
 [ext_resource type="Script" uid="uid://b1s47kaxx7pxe" path="res://Assets/RunButton.cs" id="6_hh5pf"]
+[ext_resource type="Script" uid="uid://dsmjxrfxttpyc" path="res://Main/ButtonTrigger.cs" id="6_qg80j"]
 [ext_resource type="PackedScene" uid="uid://jek5bmblm7j" path="res://Assets/VRPlayer.tscn" id="7_hh5pf"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_2degd"]
@@ -19,6 +20,9 @@ size = Vector3(1, 1, 0.4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_83ytx"]
 size = Vector3(1, 1, 0.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hh5pf"]
+size = Vector3(0.1, 0.1, 0.1)
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_hh5pf")
@@ -65,6 +69,15 @@ shape = SubResource("BoxShape3D_83ytx")
 [node name="StartButton" parent="ControlPanelComponents" instance=ExtResource("3_amygn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 3.5)
 script = ExtResource("4_6aewd")
+
+[node name="StartButtonTrigger" type="Area3D" parent="ControlPanelComponents/StartButton"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0989285, 0)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("6_qg80j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ControlPanelComponents/StartButton/StartButtonTrigger"]
+shape = SubResource("BoxShape3D_hh5pf")
 
 [node name="RunButton" parent="ControlPanelComponents" instance=ExtResource("3_amygn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.85, 3.5)

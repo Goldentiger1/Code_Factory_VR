@@ -14,8 +14,6 @@ public partial class ButtonSpawn : Node3D
 	private PackedScene boxScene = new PackedScene();
 	// A public Node3D of our box
 	public Node3D box = new Node3D();
-	// A private Area3D for our buttonTrigger
-	private Area3D sBoxTrigger = new Area3D(); 
 	// A private vector3 for our box spawn position
 	public Vector3 boxPos = new Vector3(3.0f, 1.45f, -4.0f);
 	// A private boolean value to see is button pressed
@@ -36,10 +34,6 @@ public partial class ButtonSpawn : Node3D
 		boxScene = GD.Load<PackedScene>("res://Assets/Box.tscn");
 		// Set the value into lBoxeslength of our listBoxes
 		lBoxeslength = listBoxes.Length;
-		// Set our StartButtons value into sBoxTrigger
-		sBoxTrigger = GetNode<Area3D>("ButtonTrigger3D");
-		// Get Area entered
-		sBoxTrigger.BodyEntered += OnButtonTriggerEntered;
 	}
 
 	public override void _Process(double delta)
@@ -72,13 +66,5 @@ public partial class ButtonSpawn : Node3D
 		}
 
 	}
-
-	private void OnButtonTriggerEntered(Node3D hand)
-	{
-		GD.Print(hand);
-		GD.Print("Entered");
-    }
-
-
 }
 

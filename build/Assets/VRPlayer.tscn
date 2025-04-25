@@ -15,12 +15,14 @@ tracker = &"left_hand"
 
 [node name="LeftHand" parent="LeftHand" instance=ExtResource("1_qomjf")]
 
-[node name="LeftHandCollision3D" type="StaticBody3D" parent="LeftHand"]
+[node name="LeftHandNode3D" type="Node3D" parent="LeftHand"]
+
+[node name="LeftHandCollision3D" type="StaticBody3D" parent="LeftHand/LeftHandNode3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01, -0.04, 0.08)
 collision_layer = 2
-collision_mask = 0
+collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LeftHand/LeftHandCollision3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LeftHand/LeftHandNode3D/LeftHandCollision3D"]
 shape = SubResource("BoxShape3D_qomjf")
 
 [node name="RightHand" type="XRController3D" parent="."]
@@ -28,10 +30,12 @@ tracker = &"right_hand"
 
 [node name="RightHand" parent="RightHand" instance=ExtResource("2_50gjr")]
 
-[node name="RightHandCollision3D" type="StaticBody3D" parent="RightHand"]
+[node name="RightHandNode3D" type="Node3D" parent="RightHand"]
+
+[node name="RightHandCollision3D" type="StaticBody3D" parent="RightHand/RightHandNode3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01, -0.04, 0.08)
 collision_layer = 2
-collision_mask = 0
+collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RightHand/RightHandCollision3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RightHand/RightHandNode3D/RightHandCollision3D"]
 shape = SubResource("BoxShape3D_qomjf")
